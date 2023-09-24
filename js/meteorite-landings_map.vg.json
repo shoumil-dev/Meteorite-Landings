@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Meteorite Landings on Earth (till 2016)",
-    "width": 800,
-    "height": 400,
+    "width": 1000,
+    "height": 800,
     "background": "#d9f0f6", 
     "layer": [
         {
@@ -54,11 +54,11 @@
             },
             "encoding": {
                 "tooltip": [
-                    {"field": "name", "type": "nominal", "title": "Name"},
-                    {"field": "mass", "type": "quantitative", "title": "Mass"},
+                    {"field": "Name", "type": "nominal", "title": "Name"},
+                    {"field": "Mass", "type": "quantitative", "title": "Mass"},
                     {"field": "Latitude", "type": "quantitative", "title": "Latitude"},
                     {"field": "Longitude", "type": "quantitative", "title": "Longitude"},
-                    {"field": "year", "type": "ordinal", "title": "Year Fell"}
+                    {"field": "Year", "type": "ordinal", "title": "Year Fell"}
                 ],
 
                 "longitude": {
@@ -72,12 +72,16 @@
                 },
                 
                 "size": {
-                    "field": "mass",
+                    "field": "Mass",
                     "type": "quantitative",
-                    "scale": {"type": ""}
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [100000, 1000000, 10000000, 50000000],
+                        "range": [0, 25, 100, 200, 400]
+                    }
                 },
                 
-                "color": {"value": "darkred"}
+                "color": {"value": "red"}
             }
         }
     ]
