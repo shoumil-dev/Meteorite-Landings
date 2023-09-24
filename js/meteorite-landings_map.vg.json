@@ -29,7 +29,6 @@
             "projection": {
                 "type": "equalEarth"
             },
-
             "mark": "circle",
             "encoding": {
                 "longitude": {
@@ -41,8 +40,12 @@
                     "field": "reclat",
                     "type": "quantitative"
                 },
-
-                "size": {"value": 10},
+                
+                "size": {
+                    "field": "mass",
+                    "type": "quantitative",
+                    "scale": {"type": "sqrt"}
+                },
                 "color": {"value": "steelblue"}
             }
         }
